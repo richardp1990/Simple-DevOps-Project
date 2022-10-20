@@ -1,4 +1,7 @@
 FROM centos
+RUN cd /etc/yum.repos.d/
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/Cent$
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http:$
 RUN yum install java -y
 RUN mkdir /opt/tomcat/
 WORKDIR /opt/tomcat
